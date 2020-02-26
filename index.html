@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>データベース</title>
+  <meta http-equiv="content-type" charset="utf-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="See-ss.css">
+  <script type="text/javascript" src="list.js"></script>
+</head>
+<body>
+  <!--GASの画面を表示させないため-->
+  <iframe src="#" id="fake-target" name="fake-target" style="width:0px; height:0px; border:0px;"></iframe>
+  <!-- ヘッダ -->
+  <header class="hero is-small is-dark">
+    <div class="hero-body">
+      <div class="container is-fluid">
+        <nav class="columns is-vcentered">
+          <div class="column">
+            <a href="">
+              <h1 class="title frp-title">出張所</h1>
+              <h2 class="subtitle frp-subtitle">データベース</h2>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- パンくずリスト -->
+  <section class="section">
+    <div class="container is-fluid">
+      <nav class="breadcrumb frp-breadcrumb" aria-label="breadcrumbs">
+        <ul>
+          <li><a href="">TOP</a></li>
+          <li><a href="">パーソナルデータ</a></li>
+          <li class="is-active"><a href="">所持</a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+  <!-- コンテンツ -->
+  <section class="section">
+    <div class="container is-fluid">
+      <!-- タブ -->
+      <div class="tabs is-boxed">
+        <ul>
+          <li class="is-active"><a>サーヴァント</a></li>
+          <li><a>概念礼装</a></li>
+          <li><a>指令紋章</a></li>
+        </ul>
+      </div>
+      <!-- ローディング -->
+      <div class="loading1" id="loading">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+      <!-- フォーム -->
+      <div id="contents" class="container is-fluid" style="display:none">
+        <form id="formID" action="https://script.google.com/macros/s/AKfycbyDHR0CRMH8vAUGPHpOv-rKOt9pquHJzTygGn1vE0KQMYnYOSEY/exec" method="POST" target="fake-target">
+          <!-- テーブル -->
+          <table class="table is-fullwidth">
+            <!-- セイバー -->
+            <thead>
+              <tr>
+                <th>
+                  <a href="">
+                    <article class="media">
+                      <div class="media-content">
+                        <!-- クラス名 -->
+                        <div class="content">セイバー</div>
+                      </div>
+                    </article>
+                  </a>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <!-- テーブルデータ -->
+                <td id="saber"></td>
+              </tr>
+            </tbody>
+            <!-- ランサー -->
+            <thead>
+              <tr>
+                <th>
+                  <a href="">
+                    <article class="media">
+                      <div class="media-content">
+                        <!-- クラス名 -->
+                        <div class="content">ランサー</div>
+                      </div>
+                    </article>
+                  </a>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <!-- テーブルデータ -->
+                <td id="lancer"></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <input name="startRow" type="hidden" value="2">
+          <button onClick="sendForm();">更新</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</body>
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="event.js"></script>
+<script type="text/javascript" src="requestData.js"></script>
+</html>
