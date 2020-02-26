@@ -38,8 +38,9 @@ const createTableData = () => {
     const contentImg = document.createElement('div');
     contentImg.classList.add('content-img');
 
+    const IMGURL = `https://img.gamewith.jp/article_tools/fatego/gacha/i_${servantImg}.png`;
     const img = document.createElement('img');
-    img.setAttribute('src', servantImg);
+    img.setAttribute('src', IMGURL);
     img.classList.add(servantName);
 
     const skillDescription = document.createElement('p');
