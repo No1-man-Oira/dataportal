@@ -1,9 +1,9 @@
 const getData = async () => {
-  const response = await fetch('https://script.google.com/macros/s/AKfycbyDHR0CRMH8vAUGPHpOv-rKOt9pquHJzTygGn1vE0KQMYnYOSEY/exec');
+  const response = await fetch('https://script.google.com/macros/s/AKfycbzaTUARnpJ-zaVfIjOnlUnONAbHFdXp82MGnLhj6lW-nCJjmHg/exec');
   const data = await response.json();
-  const saber = data[0].saber.split(',');
+  const buff = data[0].buff.split(',');
 
-  saber.forEach((name) => {
+  buff.forEach((name) => {
     const elements = document.getElementsByClassName(name);
     if (elements) {
       elements[0].classList.add('has'); // カード

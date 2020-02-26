@@ -43,9 +43,9 @@
       <!-- タブ -->
       <div class="tabs is-boxed">
         <ul>
-          <li class="is-active"><a>サーヴァント</a></li>
-          <li><a>概念礼装</a></li>
-          <li><a>指令紋章</a></li>
+          <li><a>メインセット1</a></li>
+          <li><a>メインセット2</a></li>
+          <li class="is-active"><a>ナイトメア</a></li>
         </ul>
       </div>
       <!-- ローディング -->
@@ -58,18 +58,18 @@
       </div>
       <!-- フォーム -->
       <div id="contents" class="container is-fluid" style="display:none">
-        <form id="formID" action="https://script.google.com/macros/s/AKfycbyDHR0CRMH8vAUGPHpOv-rKOt9pquHJzTygGn1vE0KQMYnYOSEY/exec" method="POST" target="fake-target">
+        <form id="formID" action="https://script.google.com/macros/s/AKfycbzaTUARnpJ-zaVfIjOnlUnONAbHFdXp82MGnLhj6lW-nCJjmHg/exec" method="POST" target="fake-target">
           <!-- テーブル -->
           <table class="table is-fullwidth">
-            <!-- セイバー -->
+            <!-- バフ -->
             <thead>
               <tr>
                 <th>
                   <a href="">
                     <article class="media">
                       <div class="media-content">
-                        <!-- クラス名 -->
-                        <div class="content">セイバー</div>
+                        <!-- 種別 -->
+                        <div class="content">バフ</div>
                       </div>
                     </article>
                   </a>
@@ -79,18 +79,18 @@
             <tbody>
               <tr>
                 <!-- テーブルデータ -->
-                <td id="saber"></td>
+                <td id="buff"></td>
               </tr>
             </tbody>
-            <!-- ランサー -->
+            <!-- デバフ -->
             <thead>
               <tr>
                 <th>
                   <a href="">
                     <article class="media">
                       <div class="media-content">
-                        <!-- クラス名 -->
-                        <div class="content">ランサー</div>
+                        <!-- 種別 -->
+                        <div class="content">デバフ</div>
                       </div>
                     </article>
                   </a>
@@ -106,7 +106,6 @@
           </table>
 
           <input name="startRow" type="hidden" value="2">
-          <button onClick="sendForm();">更新</button>
         </form>
       </div>
     </div>

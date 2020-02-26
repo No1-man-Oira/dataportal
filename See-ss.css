@@ -23,7 +23,7 @@
 .content-img {
   padding: 0.2em 0;
   text-align: center;
-  background: lightblue;
+  background: silver;
 }
 
 .content-1,
@@ -31,11 +31,7 @@
   position: relative;
   padding: 0.6em 0.3em;
   margin: 0;
-  font-size: 1em;
-}
-
-.content-2 {
-  font-size: 1em;
+  font-size: 0.8em;
 }
 
 .content-2::after {
