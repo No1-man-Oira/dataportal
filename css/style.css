@@ -68,3 +68,7 @@ img.has {
 .menu:hover {
   opacity: 0.7;
 }
+
+html {
+  overflow-y: hidden;
+}

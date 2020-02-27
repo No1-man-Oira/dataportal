@@ -14,7 +14,6 @@ const setCard = (data, key) => {
   });
 }
 
-
 const getData = async () => {
   const response = await fetch('https://script.google.com/macros/s/AKfycbzaTUARnpJ-zaVfIjOnlUnONAbHFdXp82MGnLhj6lW-nCJjmHg/exec');
   const data = await response.json();
