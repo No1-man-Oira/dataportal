@@ -16,6 +16,7 @@ img.has {
 
 .displayData {
   height: 75%;
+  padding-bottom: 150px;
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -30,7 +31,7 @@ img.has {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 3rem 1.5rem 3rem;
+  padding: 1rem 1.5rem 1rem;
 }
 
 .box-nav {

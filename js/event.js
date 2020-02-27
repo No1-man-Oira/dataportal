@@ -22,9 +22,9 @@ const switchClass = () => {
   }
 };
 
-switchClass();
-
 /**
 * スプレッドシートに送信
 **/
 const sendForm = () => document.getElementById("formID").submit();
+
+switchClass();

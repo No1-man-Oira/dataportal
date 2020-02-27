@@ -70,7 +70,7 @@ const createTableHead = (skillType) => {
 const createTableBody = (skillType) => {
   const td = document.createElement('td');
 
-  nightmareList.buff.forEach(function (nightmare) {
+  nightmareList[skillType].forEach(function (nightmare) {
     const labelName = nightmare[0];
     const imgNum = nightmare[1];
     const nightmareDescription1 = nightmare[2];

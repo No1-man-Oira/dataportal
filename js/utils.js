@@ -15,6 +15,10 @@ const setAttributes = (target, attributes) => {
 **/
 const IMGURL = (imgNum) => `https://sinoalice.game-db.tw/images/card/CardS${imgNum}.png`;
 
+/**
+* カラム名のディスプレイ表記
+*
+**/
 const columnMap = {
   buff: 'バフ',
   debuff: 'デバフ'
