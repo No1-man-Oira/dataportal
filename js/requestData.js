@@ -1,10 +1,10 @@
 const setCard = (data, key) => {
   const column = data[0][key].split(',');
-  console.log(column);
 
   column.forEach((name) => {
     const elements = document.getElementsByClassName(name);
-    if (elements) {
+
+    if (elements.length) {
       elements[0].classList.add('has'); // カード
       elements[1].classList.add('has'); // img
     }
