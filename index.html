@@ -3,115 +3,87 @@
   <title>データベース</title>
   <meta http-equiv="content-type" charset="utf-8">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-  <link rel="stylesheet" type="text/css" href="See-ss.css">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script type="text/javascript" src="list.js"></script>
+  <link rel="stylesheet" type="text/css" href="./css/See-ss.css">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script type="text/javascript" src="./js/utils.js"></script>
+  <script type="text/javascript" src="./js/list.js"></script>
 </head>
 <body>
   <!--GASの画面を表示させないため-->
   <iframe src="#" id="fake-target" name="fake-target" style="width:0px; height:0px; border:0px;"></iframe>
-  <!-- ヘッダ -->
-  <header class="hero is-small is-dark">
-    <div class="hero-body">
-      <div class="container is-fluid">
-        <nav class="columns is-vcentered">
-          <div class="column">
-            <a href="">
-              <h1 class="title frp-title">出張所</h1>
-              <h2 class="subtitle frp-subtitle">データベース</h2>
-            </a>
-          </div>
-        </nav>
-      </div>
-    </div>
-  </header>
-  <!-- パンくずリスト -->
-  <section class="section">
-    <div class="container is-fluid">
-      <nav class="breadcrumb frp-breadcrumb" aria-label="breadcrumbs">
-        <ul>
-          <li><a href="">TOP</a></li>
-          <li><a href="">パーソナルデータ</a></li>
-          <li class="is-active"><a href="">所持</a></li>
-        </ul>
-      </nav>
-    </div>
-  </section>
-  <!-- コンテンツ -->
-  <section class="section">
-    <div class="container is-fluid">
-      <!-- タブ -->
-      <div class="tabs is-boxed">
-        <ul>
-          <li><a>メインセット1</a></li>
-          <li><a>メインセット2</a></li>
-          <li class="is-active"><a>ナイトメア</a></li>
-        </ul>
-      </div>
-      <!-- ローディング -->
-      <div class="loading1" id="loading">
-        <div class="rect1"></div>
-        <div class="rect2"></div>
-        <div class="rect3"></div>
-        <div class="rect4"></div>
-        <div class="rect5"></div>
-      </div>
-      <!-- フォーム -->
-      <div id="contents" class="container is-fluid" style="display:none">
-        <form id="formID" action="https://script.google.com/macros/s/AKfycbzaTUARnpJ-zaVfIjOnlUnONAbHFdXp82MGnLhj6lW-nCJjmHg/exec" method="POST" target="fake-target">
-          <!-- テーブル -->
-          <table class="table is-fullwidth">
-            <!-- バフ -->
-            <thead>
-              <tr>
-                <th>
-                  <a href="">
-                    <article class="media">
-                      <div class="media-content">
-                        <!-- 種別 -->
-                        <div class="content">バフ</div>
-                      </div>
-                    </article>
-                  </a>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <!-- テーブルデータ -->
-                <td id="buff"></td>
-              </tr>
-            </tbody>
-            <!-- デバフ -->
-            <thead>
-              <tr>
-                <th>
-                  <a href="">
-                    <article class="media">
-                      <div class="media-content">
-                        <!-- 種別 -->
-                        <div class="content">デバフ</div>
-                      </div>
-                    </article>
-                  </a>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <!-- テーブルデータ -->
-                <td id="lancer"></td>
-              </tr>
-            </tbody>
-          </table>
 
-          <input name="startRow" type="hidden" value="2">
-        </form>
+  <div class="wrapper">
+    <!-- ヘッダ -->
+    <header class="hero is-small is-dark">
+      <div class="hero-body">
+        <div class="container is-fluid">
+          <nav class="columns is-centered">
+            <div class="column">
+              <a href="">
+                <h1 class="title frp-title">出張所</h1>
+                <h2 class="subtitle frp-subtitle">データベース</h2>
+              </a>
+            </div>
+          </nav>
+        </div>
       </div>
-    </div>
-  </section>
+    </header>
+    <!-- 名前 -->
+    <section class="section">
+      <div class="container is-fluid">
+        <h1 class="title">名前</h1>
+      </div>
+    </section>
+    <!-- コンテンツ -->
+    <section class="section">
+      <div class="container is-fluid">
+        <!-- タブ -->
+        <div class="tabs is-boxed">
+          <ul>
+            <li><a>メインセット1</a></li>
+            <li><a>メインセット2</a></li>
+            <li class="is-active"><a>ナイトメア</a></li>
+          </ul>
+        </div>
+        <!-- ローディング -->
+        <div class="loading1" id="loading">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+        </div>
+        <!-- 表示データ -->
+        <div id="contents" class="displayData container is-fluid" style="display:none">
+          <form id="formID"
+            action="https://script.google.com/macros/s/AKfycbzaTUARnpJ-zaVfIjOnlUnONAbHFdXp82MGnLhj6lW-nCJjmHg/exec"
+            method="POST"
+            target="fake-target"
+          >
+            <!-- テーブル -->
+            <table class="table is-fullwidth" id="contentTable"></table>
+
+            <input name="startRow" type="hidden" value="2">
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- フッタ -->
+    <footer class="footer">
+      <div class="box-nav">
+        <ul class="inner-nav">
+          <li class="menu">menu1</li>
+          <li class="menu">menu2</li>
+          <li class="menu">menu3</li>
+          <li class="menu">menu4</li>
+          <li class="menu">menu5</li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
 </body>
-<script type="text/javascript" src="script.js"></script>
-<script type="text/javascript" src="event.js"></script>
-<script type="text/javascript" src="requestData.js"></script>
+<script type="text/javascript" src="./js/setTableData.js"></script>
+<script type="text/javascript" src="./js/requestData.js"></script>
+<script type="text/javascript" src="./js/event.js"></script>
 </html>
