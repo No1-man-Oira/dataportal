@@ -14,13 +14,9 @@ const setCard = (data, key) => {
   });
 }
 
-/**
- * ナイトメア所持データを取得
- */
-const getHasNightmareData = async () => {
-  const utils = new Utils();
-  const data = await utils.getData('https://script.google.com/macros/s/AKfycbzaTUARnpJ-zaVfIjOnlUnONAbHFdXp82MGnLhj6lW-nCJjmHg/exec');
-
+const getData = async () => {
+  const response = await fetch('https://script.google.com/macros/s/AKfycbzaTUARnpJ-zaVfIjOnlUnONAbHFdXp82MGnLhj6lW-nCJjmHg/exec');
+  const data = await response.json();
   const keys = Object.keys(data[0]);
   keys.forEach((key) => {
     if (key !== 'name') setCard(data, key);
@@ -30,4 +26,4 @@ const getHasNightmareData = async () => {
   document.getElementById('contents').style.display = 'block';
 }
 
-getHasNightmareData();
+getData();
