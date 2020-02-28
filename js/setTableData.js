@@ -1,6 +1,6 @@
 /**
 * ### 構造
-
+*
 *    <thead>
 *      <tr>
 *        <th>
@@ -18,9 +18,10 @@
 * @param skillType スキルタイプ名
 */
 const createTableHead = (skillType) => {
+  const utils = new Utils();
   const content = document.createElement('div');
   content.classList.add('content');
-  content.textContent = columnMap[skillType];
+  content.textContent = utils.columnMap[skillType];
 
   const mediaContent = document.createElement('div');
   content.classList.add('media-content');
@@ -68,50 +69,56 @@ const createTableHead = (skillType) => {
 * @param skillType スキルタイプ名
 */
 const createTableBody = (skillType) => {
+  const utils = new Utils();
+  const dataList = new DataList();
   const td = document.createElement('td');
 
-  nightmareList[skillType].forEach(function (nightmare) {
-    const labelName = nightmare[0];
-    const imgNum = nightmare[1];
-    const nightmareDescription1 = nightmare[2];
-    const nightmareDescription2 = (nightmare.length === 4) ? nightmare[3] : 'none';
+  dataList.nightmareList[skillType].forEach(function (nightmare) {
+    const nightmareData = utils.nightmareDataMap(nightmare);
 
     const img = document.createElement('img');
-    img.setAttribute('src', IMGURL(imgNum));
-    img.classList.add('cardImg', labelName);
+    img.setAttribute('src', utils.IMGURL(nightmareData.imgNum));
+    img.classList.add('cardImg', nightmareData.labelName);
 
     const contentImg = document.createElement('div');
     contentImg.classList.add('content-img');
     contentImg.appendChild(img);
 
     const card = document.createElement('div');
-    card.classList.add('card-2', labelName);
-    card.addEventListener('click', () => window.setTimeout(() => sendForm(), 0));
+    card.classList.add('card-2', nightmareData.labelName);
+    card.addEventListener('click',
+      () => window.setTimeout(
+        () => utils.sendForm('hasNightmareData'),
+        0
+      )
+    );
     card.appendChild(contentImg);
 
     const skillDescription1 = document.createElement('p');
     skillDescription1.classList.add('content-1');
-    skillDescription1.textContent = nightmareDescription1;
+    skillDescription1.textContent = nightmareData.nightmareDescription1;
     card.appendChild(skillDescription1);
 
     const skillDescription2 = document.createElement('p');
     skillDescription2.classList.add('content-2');
-    skillDescription2.textContent = nightmareDescription2;
-    if (nightmareDescription2 === 'none') skillDescription2.style.visibility = 'hidden';
+    skillDescription2.textContent = nightmareData.nightmareDescription2;
+    if (nightmareData.nightmareDescription2 === 'none') skillDescription2.style.visibility = 'hidden';
     card.appendChild(skillDescription2);
 
     const label = document.createElement('label');
-    label.setAttribute('for', labelName);
+    label.setAttribute('for', nightmareData.labelName);
     label.appendChild(card);
 
     const checkBox = document.createElement('input');
     const attributes = [
       ['type', 'checkbox'],
-      ['id', labelName],
+      ['id', nightmareData.labelName],
       ['name', skillType],
-      ['value', labelName]
+      ['value', nightmareData.labelName]
     ];
-    setAttributes(checkBox, attributes);
+    attributes.forEach((attribute) => {
+      checkBox.setAttribute(attribute[0], attribute[1]);
+    });
 
     td.appendChild(label);
     td.appendChild(checkBox);
@@ -123,14 +130,9 @@ const createTableBody = (skillType) => {
   return tbody;
 };
 
-const init = () => {
-  const table = document.getElementById('contentTable');
-
-  const skillTypeList = Object.keys(nightmareList);
-  skillTypeList.forEach((skillType) => {
-    table.appendChild(createTableHead(skillType));
-    table.appendChild(createTableBody(skillType));
-  });
-}
-
-init();
+const table = document.getElementById('contentTable');
+const skillTypeList = Object.keys(new DataList().nightmareList);
+skillTypeList.forEach((skillType) => {
+  table.appendChild(createTableHead(skillType));
+  table.appendChild(createTableBody(skillType));
+});
