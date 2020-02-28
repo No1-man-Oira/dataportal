@@ -18,8 +18,7 @@ const setCard = (data, key) => {
  * ナイトメア所持データを取得
  */
 const getHasNightmareData = async () => {
-  const utils = new Utils();
-  const data = await utils.getData('https://script.google.com/macros/s/AKfycbzaTUARnpJ-zaVfIjOnlUnONAbHFdXp82MGnLhj6lW-nCJjmHg/exec');
+  const data = await getData('https://script.google.com/macros/s/AKfycbzaTUARnpJ-zaVfIjOnlUnONAbHFdXp82MGnLhj6lW-nCJjmHg/exec');
 
   const keys = Object.keys(data[0]);
   keys.forEach((key) => {

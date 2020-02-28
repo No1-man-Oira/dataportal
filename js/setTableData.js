@@ -18,10 +18,9 @@
 * @param skillType スキルタイプ名
 */
 const createTableHead = (skillType) => {
-  const utils = new Utils();
   const content = document.createElement('div');
   content.classList.add('content');
-  content.textContent = utils.columnMap[skillType];
+  content.textContent = columnMap[skillType];
 
   const mediaContent = document.createElement('div');
   content.classList.add('media-content');
@@ -69,15 +68,13 @@ const createTableHead = (skillType) => {
 * @param skillType スキルタイプ名
 */
 const createTableBody = (skillType) => {
-  const utils = new Utils();
-  const dataList = new DataList();
   const td = document.createElement('td');
 
-  dataList.nightmareList[skillType].forEach(function (nightmare) {
-    const nightmareData = utils.nightmareDataMap(nightmare);
+  nightmareList[skillType].forEach(function (nightmare) {
+    const nightmareData = nightmareDataMap(nightmare);
 
     const img = document.createElement('img');
-    img.setAttribute('src', utils.IMGURL(nightmareData.imgNum));
+    img.setAttribute('src', IMGURL(nightmareData.imgNum));
     img.classList.add('cardImg', nightmareData.labelName);
 
     const contentImg = document.createElement('div');
@@ -88,7 +85,7 @@ const createTableBody = (skillType) => {
     card.classList.add('card-2', nightmareData.labelName);
     card.addEventListener('click',
       () => window.setTimeout(
-        () => utils.sendForm('hasNightmareData'),
+        () => sendForm('hasNightmareData'),
         0
       )
     );
@@ -131,7 +128,7 @@ const createTableBody = (skillType) => {
 };
 
 const table = document.getElementById('contentTable');
-const skillTypeList = Object.keys(new DataList().nightmareList);
+const skillTypeList = Object.keys(nightmareList);
 skillTypeList.forEach((skillType) => {
   table.appendChild(createTableHead(skillType));
   table.appendChild(createTableBody(skillType));
