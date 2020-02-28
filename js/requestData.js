@@ -14,9 +14,13 @@ const setCard = (data, key) => {
   });
 }
 
-const getData = async () => {
-  const response = await fetch('https://script.google.com/macros/s/AKfycbzaTUARnpJ-zaVfIjOnlUnONAbHFdXp82MGnLhj6lW-nCJjmHg/exec');
-  const data = await response.json();
+/**
+ * ナイトメア所持データを取得
+ */
+const getHasNightmareData = async () => {
+  const utils = new Utils();
+  const data = await utils.getData('https://script.google.com/macros/s/AKfycbzaTUARnpJ-zaVfIjOnlUnONAbHFdXp82MGnLhj6lW-nCJjmHg/exec');
+
   const keys = Object.keys(data[0]);
   keys.forEach((key) => {
     if (key !== 'name') setCard(data, key);
@@ -26,4 +30,4 @@ const getData = async () => {
   document.getElementById('contents').style.display = 'block';
 }
 
-getData();
+getHasNightmareData();

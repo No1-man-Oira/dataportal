@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
   <link rel="stylesheet" type="text/css" href="./css/See-ss.css">
   <link rel="stylesheet" type="text/css" href="./css/style.css">
-  <script type="text/javascript" src="./js/utils.js"></script>
-  <script type="text/javascript" src="./js/list.js"></script>
+  <script type="text/javascript" src="./js/Utils.js"></script>
+  <script type="text/javascript" src="./js/DataList.js"></script>
 </head>
 <body>
   <!--GASの画面を表示させないため-->
@@ -16,20 +16,7 @@
 
   <div class="wrapper">
     <!-- ヘッダ -->
-    <header class="hero is-small is-dark">
-      <div class="hero-body">
-        <div class="container is-fluid">
-          <nav class="columns is-centered">
-            <div class="column">
-              <a href="">
-                <h1 class="title frp-title">出張所</h1>
-                <h2 class="subtitle frp-subtitle">データベース</h2>
-              </a>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </header>
+    <script src="./js/parts/header.js"></script>
     <!-- 名前 -->
     <section class="section">
       <div class="container is-fluid">
@@ -48,40 +35,24 @@
           </ul>
         </div>
         <!-- ローディング -->
-        <div class="loading1" id="loading">
-          <div class="rect1"></div>
-          <div class="rect2"></div>
-          <div class="rect3"></div>
-          <div class="rect4"></div>
-          <div class="rect5"></div>
-        </div>
+        <script src="./js/parts/loading.js"></script>
         <!-- 表示データ -->
         <div id="contents" class="displayData container is-fluid" style="display:none">
-          <form id="formID"
+          <form id="hasNightmareData"
             action="https://script.google.com/macros/s/AKfycbzaTUARnpJ-zaVfIjOnlUnONAbHFdXp82MGnLhj6lW-nCJjmHg/exec"
             method="POST"
             target="fake-target"
           >
             <!-- テーブル -->
             <table class="table is-fullwidth" id="contentTable"></table>
-
+            <!-- row の値-->
             <input name="startRow" type="hidden" value="2">
           </form>
         </div>
       </div>
     </section>
     <!-- フッタ -->
-    <footer class="footer">
-      <div class="box-nav">
-        <ul class="inner-nav">
-          <li class="menu">menu1</li>
-          <li class="menu">menu2</li>
-          <li class="menu">menu3</li>
-          <li class="menu">menu4</li>
-          <li class="menu">menu5</li>
-        </ul>
-      </div>
-    </footer>
+    <script src="./js/parts/footer.js"></script>
   </div>
 
 </body>
