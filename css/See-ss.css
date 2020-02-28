@@ -1,7 +1,7 @@
 .card-2 {
   display: inline-block;
   position: relative;
-  width: 10em;
+  width: 15em;
   margin: 5px 5px;
   cursor: pointer;
   border: 0.5px solid #e9eaea;
@@ -17,13 +17,13 @@
   font-size: 0.8rem;
   color: #fff;
   content: '所持';
-  background: lightcoral;
+  background: darkred;
 }
 
 .content-img {
   padding: 0.2em 0;
   text-align: center;
-  background: silver;
+  background: lightgray;
 }
 
 .content-1,
@@ -31,11 +31,11 @@
   position: relative;
   padding: 0.6em 0.3em;
   margin: 0;
-  font-size: 0.8em;
+  font-size: 100%;
 }
 
 .content-2 {
-  font-size: 0.75em;
+  font-size: 100%;
 }
 
 .content-2::after {

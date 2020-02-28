@@ -19,15 +19,15 @@
 */
 const createTableHead = (skillType) => {
   const content = document.createElement('div');
-  content.classList.add('content');
+  content.classList.add('content', 'is-large');
   content.textContent = columnMap[skillType];
 
   const mediaContent = document.createElement('div');
-  content.classList.add('media-content');
+  mediaContent.classList.add('media-content');
   mediaContent.appendChild(content);
 
   const media = document.createElement('div');
-  content.classList.add('media');
+  media.classList.add('media');
   media.appendChild(mediaContent);
 
   const href = '';

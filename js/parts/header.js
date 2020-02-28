@@ -1,6 +1,6 @@
 document.write(`
-<header class="hero is-small is-dark">
-  <div class="hero-body">
+<header class="hero is-dark">
+  <div class="hero-head">
     <div class="container is-fluid">
       <nav class="columns is-centered">
         <div class="column">
