@@ -60,3 +60,22 @@ const switchClass = (targetElements, className) => {
 const sendForm = (formId) => {
   document.getElementById(formId).submit();
 };
+
+/**
+* カードとイメージにクラスをつける
+**/
+const setCard = (data, key) => {
+  const column = data[0][key].split(',');
+
+  column.forEach((name) => {
+    const elements = document.getElementsByClassName(name);
+
+    if (elements.length) {
+      elements[0].classList.add('has'); // カード
+      elements[1].classList.add('has'); // img
+    }
+
+    const checkbox = document.getElementById(name);
+    if (checkbox) checkbox.checked = true;
+  });
+}
